@@ -1,0 +1,207 @@
+PODSETNIK:
+brisanje veze ---MATCH (n {ime:'Ivana'})-[r:RADI_U]-() DELETE n 
+
+CREATE (s:Skola { naziv:'Fair Play', adresa:'21. maja 23', ocena:'5', web:'www.fairplay.com'});
+CREATE (s1:Skola { naziv:'Oxford', adresa:'Obrenoviceva 15/1', ocena:'4', web:'www.oxford.com'})
+CREATE (s2:Skola { naziv:'Spell', adresa:'Dusanova 15', ocena:'4', web:'www.spell.com'})
+CREATE (s3:Skola { naziv:'Voyager', adresa:'Ucitelja Milina 8', ocena:'3', web:'www.voyager.com'})
+CREATE (s4:Skola { naziv:'Alphabet', adresa:'Gornjomatejevacka 43', ocena:'3', web:'www.alphabet.com'})
+CREATE (s5:Skola { naziv:'Englishroom', adresa:'Knjazevacka 33', ocena:'5', web:'www.englishroom.com'})
+CREATE (s6:Skola { naziv:'Languages', adresa:'Kosovke devojke 16', ocena:'4', web:'www.languages.com'})
+
+
+CREATE (p:Predavac {ime:'Ivana', prezime:'Golubovic', obrazovanje:'Filozofski fakultet Nis', iskustvo:'Gimnazija "Bora Stankovic"'})
+CREATE (p1:Predavac {ime:'Milica', prezime:'Nikolic', obrazovanje:'Filozofski fakultet Beograd', iskustvo:'Gimnazija "Stevan Sremac"'})
+CREATE (p2:Predavac {ime:'Marija', prezime:'Stankovic', obrazovanje:'University of Oxford', iskustvo:'Gimnazija "Svetozar Markovic"'})
+CREATE (p3:Predavac {ime:'Dusan', prezime:'Stefanovic', obrazovanje:'Filozofski fakultet Novi Sad', iskustvo:'Ekonomski fakultet'})
+CREATE (p4:Predavac {ime:'Petar', prezime:'Petrovic', obrazovanje:'Filozofski fakultet Beograd', iskustvo:'Singidunum'})
+CREATE (p5:Predavac {ime:'Luka', prezime:'Stamenkovic', obrazovanje:'Filozofski fakultet Nis', iskustvo:'Ekonomski fakultet, Elektornski fakultet'})
+CREATE (p6:Predavac {ime:'Milan', prezime:'Nemanjic', obrazovanje:'Filozofski fakultet Beograd', iskustvo:'Elektornski fakultet'})
+CREATE (p7:Predavac {ime:'Vladimir', prezime:'Sindjelic', obrazovanje:'Filozofski fakultet Nis', iskustvo:'Ekonomska skola Nis'})
+
+
+CREATE (k:Korisnik {ime:'Anita', prezime:'Jocic', telefon:'062555333'})
+CREATE (k1:Korisnik {ime:'Jasmina', prezime:'Micic', telefon:'062222333'})
+CREATE (k2:Korisnik {ime:'Nikola', prezime:'Joksimovic', telefon:'062555444'})
+CREATE (k3:Korisnik {ime:'Vesna', prezime:'Markovic', telefon:'062555666'})
+CREATE (k4:Korisnik {ime:'Vlada', prezime:'Stefanovic', telefon:'062555777'})
+CREATE (k5:Korisnik {ime:'Igor', prezime:'Milenkovic', telefon:'062555888'})
+CREATE (k6:Korisnik {ime:'Dana', prezime:'Djordjevic', telefon:'062555999'})
+CREATE (k7:Korisnik {ime:'Mladen', prezime:'Glisovic', telefon:'062555222'})
+CREATE (k8:Korisnik {ime:'Katarina', prezime:'Stankovic', telefon:'063444333'})
+CREATE (k9:Korisnik {ime:'Dusan', prezime:'Petrovic', telefon:'065777333'})
+CREATE (k10:Korisnik {ime:'Kristina', prezime:'Simic', telefon:'069888333'})
+CREATE (k11:Korisnik {ime:'Sandra', prezime:'Zivkovic', telefon:'061232333'})
+CREATE (k12:Korisnik {ime:'Milica', prezime:'Markovic', telefon:'064999333'})
+CREATE (k13:Korisnik {ime:'Stefan', prezime:'Stankovic', telefon:'060500333'})
+CREATE (k14:Korisnik {ime:'Miljana', prezime:'Trivalic', telefon:'066256333'})
+
+CREATE (j:Kurs {id:'1', jezik:'engleski', tip:'konverzacijski', grupa:'da', trajanje:'1 mesec', fond:'12 casova'})
+CREATE (j1:Kurs {id:'2', jezik:'nemacki', tip:'konverzacijski', grupa:'da', trajanje:'1 mesec', fond:'12 casova'})
+CREATE (j2:Kurs {id:'3', jezik:'francuski', tip:'konverzacijski', grupa:'da', trajanje:'1 mesec', fond:'12 casova'})
+CREATE (j3:Kurs {id:'4', jezik:'engleski', tip:'poslovni', grupa:'ne', trajanje:'2 meseca', fond:'24 casova'})
+CREATE (j4:Kurs {id:'5', jezik:'nemacki', tip:'poslovni', grupa:'ne', trajanje:'2 meseca', fond:'24 casova'})
+CREATE (j5:Kurs {id:'6', jezik:'francuski', tip:'poslovni', grupa:'ne', trajanje:'2 meseca', fond:'24 casova'})
+CREATE (j6:Kurs {id:'7', jezik:'engleski', tip:'deciji', grupa:'da', trajanje:'3 meseca', fond:'48 casova'})
+CREATE (j7:Kurs {id:'8', jezik:'nemacki', tip:'deciji', grupa:'da', trajanje:'3 meseca', fond:'48 casova'})
+CREATE (j8:Kurs {id:'9', jezik:'francuski', tip:'deciji', grupa:'da', trajanje:'3 meseca', fond:'48 casova'})
+
+////////////////////////////// KORISNIK I KURS
+MATCH (a:Kurs), (b:Korisnik)
+WHERE a.id='1' AND b.ime='Anita'
+CREATE (a)-[r:POHADJA]->(b)
+
+MATCH (a1:Kurs), (b1:Korisnik)
+WHERE a1.id='2' AND b1.ime='Jasmina'
+CREATE (a1)-[r1:POHADJA]->(b1)
+
+MATCH (a2:Kurs), (b2:Korisnik)
+WHERE a2.id='3' AND b2.ime='Nikola'
+CREATE (a2)-[r2:POHADJA]->(b2)
+
+MATCH (a3:Kurs), (b3:Korisnik)
+WHERE a3.id='4' AND b3.ime='Vesna'
+CREATE (a3)-[r3:POHADJA]->(b3)
+
+MATCH (a4:Kurs), (b4:Korisnik)
+WHERE a4.id='5' AND b4.ime='Vlada'
+CREATE (a4)-[r4:POHADJA]->(b4)
+
+MATCH (a5:Kurs), (b5:Korisnik)
+WHERE a5.id='6' AND b5.ime='Igor'
+CREATE (a5)-[r5:POHADJA]->(b5)
+
+MATCH (a6:Kurs), (b6:Korisnik)
+WHERE a6.id='7' AND b6.ime='Dana'
+CREATE (a6)-[r6:POHADJA]->(b6)
+
+MATCH (a7:Kurs), (b7:Korisnik)
+WHERE a7.id='8' AND b7.ime='Mladen'
+CREATE (a7)-[r7:POHADJA]->(b7)
+
+MATCH (a8:Kurs), (b8:Korisnik)
+WHERE a8.id='9' AND b8.ime='Katarina'
+CREATE (a8)-[r8:POHADJA]->(b8)
+
+MATCH (a9:Kurs), (b9:Korisnik)
+WHERE a9.id='1' AND b9.ime='Dusan'
+CREATE (a9)-[r9:POHADJA]->(b9)
+
+MATCH (a10:Kurs), (b10:Korisnik)
+WHERE a10.id='2' AND b10.ime='Kristina'
+CREATE (a10)-[r10:POHADJA]->(b10)
+
+MATCH (a11:Kurs), (b11:Korisnik)
+WHERE a11.id='3' AND b11.ime='Sandra'
+CREATE (a11)-[r11:POHADJA]->(b11)
+
+MATCH (a12:Kurs), (b12:Korisnik)
+WHERE a12.id='3' AND b12.ime='Milica'
+CREATE (a12)-[r12:POHADJA]->(b12)
+
+MATCH (a13:Kurs), (b13:Korisnik)
+WHERE a13.id='4' AND b13.ime='Stefan'
+CREATE (a13)-[r13:POHADJA]->(b13)
+
+MATCH (a14:Kurs), (b14:Korisnik)
+WHERE a14.id='5' AND b14.ime='Miljana'
+CREATE (a14)-[r14:POHADJA]->(b14)
+
+/////////////////////////////       SKOLA I KURS
+MATCH (a:Kurs), (b:Skola)
+WHERE a.id='1' AND b.naziv='Fair Play'
+CREATE (a)-[r:ODRZAVA_SE]->(b)
+
+MATCH (a1:Kurs), (b1:Skola)
+WHERE a1.id='2' AND b1.naziv='Oxford'
+CREATE (a1)-[r1:ODRZAVA_SE]->(b1)
+
+MATCH (a2:Kurs), (b2:Skola)
+WHERE a2.id='3' AND b2.naziv='Englishroom'
+CREATE (a2)-[r2:ODRZAVA_SE]->(b2)
+
+MATCH (a3:Kurs), (b3:Skola)
+WHERE a3.id='4' AND b3.naziv='Spell'
+CREATE (a3)-[r3:ODRZAVA_SE]->(b3)
+
+MATCH (a4:Kurs), (b4:Skola)
+WHERE a4.id='5' AND b4.naziv='Voyager'
+CREATE (a4)-[r4:ODRZAVA_SE]->(b4)
+
+MATCH (a5:Kurs), (b5:Skola)
+WHERE a5.id='6' AND b5.naziv='Alphabet'
+CREATE (a5)-[r5:ODRZAVA_SE]->(b5)
+
+MATCH (a6:Kurs), (b6:Skola)
+WHERE a6.id='7' AND b6.naziv='Fair Play'
+CREATE (a6)-[r6:ODRZAVA_SE]->(b6)
+
+MATCH (a7:Kurs), (b7:Skola)
+WHERE a7.id='8' AND b7.naziv='Oxford'
+CREATE (a7)-[r7:ODRZAVA_SE]->(b7)
+
+MATCH (a8:Kurs), (b8:Skola)
+WHERE a8.id='9' AND b8.naziv='Englishroom'
+CREATE (a8)-[r8:ODRZAVA_SE]->(b8)
+
+/////////////////////////////////////  KURS I PREDAVAC
+
+MATCH (a:Kurs), (b:Predavac)
+WHERE a.id='1' AND b.ime='Ivana'
+CREATE (a)-[r:PREDAJE]->(b)
+
+MATCH (a1:Kurs), (b1:Predavac)
+WHERE a1.id='2' AND b1.ime='Milica'
+CREATE (a1)-[r1:PREDAJE]->(b1)
+
+MATCH (a2:Kurs), (b2:Predavac)
+WHERE a2.id='3' AND b2.ime='Marija'
+CREATE (a2)-[r2:PREDAJE]->(b2)
+
+MATCH (a3:Kurs), (b3:Predavac)
+WHERE a3.id='4' AND b3.ime='Dusan'
+CREATE (a3)-[r3:PREDAJE]->(b3)
+
+MATCH (a4:Kurs), (b4:Predavac)
+WHERE a4.id='5' AND b4.ime='Petar'
+CREATE (a4)-[r4:PREDAJE]->(b4)
+
+MATCH (a5:Kurs), (b5:Predavac)
+WHERE a5.id='6' AND b5.ime='Luka'
+CREATE (a5)-[r5:PREDAJE]->(b5)
+
+MATCH (a6:Kurs), (b6:Predavac)
+WHERE a6.id='7' AND b6.ime='Milan'
+CREATE (a6)-[r6:PREDAJE]->(b6)
+
+MATCH (a7:Kurs), (b7:Predavac)
+WHERE a7.id='8' AND b7.ime='Vladimir'
+CREATE (a7)-[r7:PREDAJE]->(b7)
+
+MATCH (a8:Kurs), (b8:Predavac)
+WHERE a8.id='9' AND b8.ime='Marija'
+CREATE (a8)-[r8:PREDAJE]->(b8)
+
+MATCH (a9:Kurs), (b9:Predavac)
+WHERE a9.id='1' AND b9.ime='Dusan'
+CREATE (a9)-[r9:PREDAJE]->(b9)
+
+MATCH (a10:Kurs), (b10:Predavac)
+WHERE a10.id='2' AND b10.ime='Petar'
+CREATE (a10)-[r10:PREDAJE]->(b10)
+
+MATCH (a11:Kurs), (b11:Predavac)
+WHERE a11.id='3' AND b11.ime='Luka'
+CREATE (a11)-[r11:PREDAJE]->(b11)
+
+MATCH (a12:Kurs), (b12:Predavac)
+WHERE a12.id='4' AND b12.ime='Milan'
+CREATE (a12)-[r12:PREDAJE]->(b12)
+
+MATCH (a13:Kurs), (b13:Predavac)
+WHERE a13.id='5' AND b13.ime='Vladimir'
+CREATE (a13)-[r13:PREDAJE]->(b13)
+
+MATCH (a14:Kurs), (b14:Predavac)
+WHERE a14.id='6' AND b14.ime='Ivana'
+CREATE (a14)-[r14:PREDAJE]->(b14)
